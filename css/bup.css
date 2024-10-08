@@ -1,0 +1,58 @@
+
+html {
+    animation-delay: 2s;
+    transition-delay: 2s;
+    scroll-behavior: smooth;
+    scrollbar-color: #ffffff #343434;
+    scrollbar-width: 4px;
+    animation-timing-function: ease-in-out;
+}
+
+
+.go-top-btn {
+    animation-timing-function: ease-in-out;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    background-color: #343434;
+    color: #fff;
+    text-decoration: none;
+    transition: 1.2s;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 20px black;
+}
+
+.go-top-btn:hover {
+    background-color: black;
+    box-shadow: 0 0 20px #343434;
+}
+
+
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+.go-top-btn img {
+    animation-timing-function: ease-in-out;
+    padding: 5px;
+    width: 25px;
+    height: 28px;
+    animation-timing-function: ease-in-out;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.rotate-once {
+    animation: rotate .6s ease-in-out;
+}
