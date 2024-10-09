@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bup.css">
+    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/ntfm.css">
     <title>¿A Donde Voy?</title>
 </head>
 
 <body>
+
+    <nav>
+        <div class="nav">
+            <a href="index.php">Inicio</a>
+            <a href="votos.php">Votos</a>
+            <a href="ayuda.php">Ayuda </a>
+            <a href="ayuda.php"> Editar / Eliminar</a>
+        </div>
+    </nav>
+
+    <!--   nav ^^^^^^  -->
     <div class="full" id="inic">
+
+
         <h1>¿A Donde Voy?</h1>
         <p>En este sitio web te presentamos 4 universidades con sus costos, ubicacion, campo laboral, carreras,
             informacion relevante, asi como una grafica de las cosas mas populares en usuarios como tu donde podras
@@ -319,15 +333,17 @@
                 <input type="text" max="50" name="nombre" required><br><br><br>
 
                 <label>¿Qué universidad es de tu agrado?</label><br>
-                <select name="univ" required>
+                <select name="univ" id="univ" required>
+                    <option value="N/A">N/A</option>
                     <option value="IPN">IPN</option>
                     <option value="UNAM">UNAM</option>
                     <option value="UAM">UAM</option>
                     <option value="UAMex">UAMex</option>
                 </select><br><br><br>
 
-                <label>¿En que carrea estas interesado/a?</label><br>
-                <select name="carr" id="">
+                <label id="Lbcarreras">¿En que carrea estas interesado/a?</label><br>
+                <select name="carr" id="carreras" disabled required>
+                    <option value="N/A"> </option>
                     <option value="Ingenieria en Computacion">Ingenieria en Computación</option>
                     <option value="Medicina">Medicina</option>
                     <option value="Ingenieria Industrial">Ingenieria Industrial</option>
@@ -336,10 +352,11 @@
                     <option value="Ingenieria en Energia">Ingenieria en Energia</option>
                     <option value="Ingenieria Civil">Ingenieria Civil</option>
                     <option value="Derecho">Derecho</option>
-                    <option value="Ingenieria en Sistemas Computacionales">Ingenieria en Sistemas Computacionales</option>
+                    <option value="Ingenieria en Sistemas Computacionales">Ingenieria en Sistemas Computacionales
+                    </option>
                     <option value="Contaduria Publica">Contaduria Publica</option>
                 </select><br><br><br>
-                <button type="submit">Enviar</button>
+                <button type="submit" id="enviar">Enviar</button>
             </form>
 
 
@@ -364,26 +381,8 @@
             </footer>
         </div>
     </div>
-    <script>
-        window.onscroll = function () {
-            const gotop = document.querySelector('.go-top-btn img');
-            if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 800) {   //a apartir de cuantos pixeles se ve
-                document.querySelector('.go-top-btn').style.display = 'block';
-            } else {
-                gotop.classList.remove('rotate-once');  //se elimina la clase al llegar arriba
-                document.querySelector('.go-top-btn').style.display = 'none';
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const gotop = document.querySelector('.go-top-btn img'); // Selecciona la imagen dentro del botÃ³n y se guarda en la variable gotop
-
-            gotop.addEventListener('click', function () {
-                this.classList.add('rotate-once'); // agrega la clase para iniciar la animaciÃ³n
-                // no se necesita eliminar la clase aquÃ­ pq se maneja en el evento del onscroll
-            });
-        });
-    </script>
+    <script src="js/carreras.js"></script>
+    <script src="js/scroll.js"></script>
 </body>
 
 </html>

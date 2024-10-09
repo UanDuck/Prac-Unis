@@ -1,12 +1,14 @@
 <?php
 include('php/conector.php');
 if ($conexion->connect_error) {
-    die('Hmmmmm esta mal registrar' . $conexion->connect_error);
-} else {
+    die('Hmmmmm esta mal php / actualiza' . $conexion->connect_error);
+} 
 
-    $nom = $_POST['nombre'];
-    $uni = $_POST['univ'];
-    $car = $_POST['carr'];
+    $idu = $_POST['idu'];
+    $nom = $_POST['nomb'];
+    $uni = $_POST['unive'];
+    $car = $_POST['carreu'];
+
     $areas = [ //a esto se le llama array asociativo
         'Ingenieria en Computacion' => 'Ingenieria y Tecnologia',
         'Medicina' => 'Ciencias de la Salud',
@@ -20,21 +22,11 @@ if ($conexion->connect_error) {
         'Contaduria Publica' => 'Ciencias Economicas y Administrativas'
     ];
     $ar = $areas[$car];
-    
-    if ($uni == 'N/A') {
-        header('location: index.php?error=Debes llenar el campo Universidad');
-        exit;
-    } else {
-        $consulta = "INSERT INTO registros(nomu, universidad, carrera, area) values('$nom','$uni','$car','$ar')";
-        if ($conexion->query($consulta) == true) {
-            header('location: index.php?exito=Registro exitoso');
-            exit;
-        } else {
-            header('location: index.php?error=' . $conexion->error);
-            exit;
-        }
-    }
-}
-$conexion->close();
+
+
+$consulta="UPDATE registros SET nomu='$nom', universidad='$uni', carrera='$car', area='$ar' where idu='$idu'";
+$registros=$conexion->query($consulta);
+
+header('location: ayuda.php');
 
 ?>
