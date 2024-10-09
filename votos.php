@@ -1,8 +1,9 @@
 <?php
-$conexion = mysqli_connect('localhost', 'root', '', 'unii');
+include('php/conector.php');
+
 // Check connection
 if ($conexion->connect_error) {
-    die("Conexion fallida, archivo votos php: " . $conn->connect_error);
+    die("Conexion fallida, archivo votos php: " . $conexion->connect_error);
 }
 $consPel = $conexion->query(" select universidad, count(universidad) votos from registros group by universidad");
 $consAct = $conexion->query(" select carrera, count(carrera) votos from registros group by carrera");
